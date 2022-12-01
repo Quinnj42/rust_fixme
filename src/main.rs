@@ -22,6 +22,22 @@ impl Display for City {
     }
 }
 
+impl Display for Color {
+
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        //let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
+        //let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
+
+        // `write!` is like `format!`, but it will write the formatted string into a buffer (the first argument)
+        write!(f, "red: {} green: {} blue: {}",
+               self.red, self.green, self.blue)
+               //messed with a copy pasta formatting until it worked :p
+
+
+    }
+}
+
+
 #[derive(Debug)]
 struct Color {
     red: u8,
@@ -37,13 +53,14 @@ fn main() {
     ].iter() {
         println!("{}", *city);
     }
-
+//git test comment
     for color in [
         Color { red: 128, green: 255, blue: 90 },
         Color { red: 0, green: 3, blue: 254 },
         Color { red: 0, green: 0, blue: 0 },
     ].iter() {
         // Hint : Fix the code so you can print it using {}
-        println!("{:?}", *color);
+        //println!("{:?}", *color);
+        println!("{}", *color);//testing...success!!
     }
 }
